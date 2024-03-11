@@ -1,0 +1,75 @@
+﻿@using AspMvcProject.Models;
+@{
+    ViewBag.Title = "Dashboard";
+}
+<style>
+    table{
+        border:1px solid #000000;
+    }
+        table tr {
+            border: 1px solid #808080;
+        }
+    table tr th, table tr,td{
+        border:1px solid #808080;
+    }
+    table tr:hover{
+        background:#ffd800;
+    }
+</style>
+
+<h2>Dashboard</h2>
+
+<form action="/Home/Dashboard" method="post" >
+    @{
+        List<BaseEquipment> pLstData = (List<BaseEquipment>)ViewBag.plstData;
+        <div id="dvTbleBorder" style="height:400px; width:500px;overflow:auto;">
+            Equipment Name:
+            <input type="text"  id="txtName" name="txtName"/>
+            <input type="submit" value="Search" name="btnSubmit"/>
+            <input type="submit" value="Clear" name="btnSubmit"/>
+              
+            <table style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>EcCount</th>
+                        <th>Entry Date</th>
+                    </tr>
+                </thead>
+
+                
+                    @foreach (BaseEquipment obj in pLstData)
+                    {
+                        if (ViewBag.txtName != "")
+                        {
+                            if (obj.Name == ViewBag.txtName)
+                            {
+                            <tr>
+                            <td>@obj.Name</td>
+                            <td>@obj.EcCount</td>
+                            <td>@obj.EntryDate.ToString()</td>
+                            </tr>
+                            }
+                        }
+                        else
+                        {
+                         <tr>
+                            <td>@obj.Name</td>
+                            <td>@obj.EcCount</td>
+                            <td>@obj.EntryDate.ToString()</td>
+                        </tr>
+                         }
+                        
+                    }
+
+                    
+
+               
+            </table>
+        </div>
+    }
+</form>
+
+   
+
+

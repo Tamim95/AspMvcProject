@@ -1,0 +1,105 @@
+﻿@model AspMvcProject.Models.BaseAccount
+@{
+    ViewBag.Title = "Login";
+}
+
+<!Doctype html>
+<html>
+<head>
+    <meta name="viewport"  content="width=device-width"/>
+    <title>View</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script>
+        var LoginMsg = '@ViewBag.LoginMsg';
+        if (LoginMsg != "")
+            alert(LoginMsg)
+    </script>
+
+</head>
+
+<body>
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+        <div style="width:400px; height:500px; position:absolute;top:0px;bottom:0px;right:0px;left:0px; margin:auto;border:1px solid red;">
+            <div class="content">
+                <div class="row" style="padding:5px 0px">
+                    <div class="col col-sm-12">
+                        <h2 style="text-align:center">Login</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col col-sm-2">
+
+                        </div>
+                        <div class="col col-sm-8">
+                            Username
+                        </div>
+                        <div class="col col-sm-2">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-sm-2">
+
+                        </div>
+                        <div class="col col-sm-8">
+                            @Html.TextBoxFor(m=>m.UserName, new {name="txtUserName" ,style="width:100%"})
+                            @*<input type="text" name="txtUserName" style="width:100%;  max-width:100%!important;" />*@
+                        </div>
+                        <div class="col col-sm-2">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-sm-2">
+
+                        </div>
+                        <div class="col col-sm-8">
+                            Password
+                        </div>
+                        <div class="col col-sm-2">
+
+                        </div>
+                    </div>
+                    <div class="row" style="padding:5px 0px">
+                        <div class="col col-sm-2">
+
+                        </div>
+                        <div class="col col-sm-8">
+                            @Html.TextBoxFor(m=>m.Password, new {name="txtPassword",style="width:100%"})
+                            @*<input type="password" name="txtPassword" style="width:100%;  max-width:100%!important;" />*@
+                        </div>
+                        <div class="col col-sm-2">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-sm-2">
+
+                        </div>
+                        <div class="col col-sm-8">
+                            <input type="submit" value="Login" id="btnLogin" name="btnSubmit" style="width:100%;  max-width:100%!important;" />
+                            <input type="submit" value="Reset" id="btnReset" name="btnSubmit" style="width:100%;  max-width:100%!important;" />
+                            <input type="submit" value="Forget Password" id="btnForgetPassword" name="btnSubmit" style="width:100%;  max-width:100%!important; " />
+                        </div>
+                        <div class="col col-sm-2">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+    @*@using (Html.BeginForm("ForgetPassword", "Account", FormMethod.Post))
+    {
+       
+    }*@
+
+
+</body>
+
+</html>
+
+

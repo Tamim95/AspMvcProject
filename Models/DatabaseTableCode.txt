@@ -1,0 +1,6 @@
+﻿alter procedure dbo.spOst_LastMember
+@UserName varchar(20)
+@Password varchar(20)
+as
+select * from OSTMember
+where [Name]=@UseName and [Password]=@Password
